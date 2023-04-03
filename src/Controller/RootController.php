@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 // Extend AbstractController to use Twig templates
 class RootController extends AbstractController
 {
-    #[Route("/", name: "/")]
+    #[Route("/", name: "home")]
     public function home(): Response
     {
         return $this->render('home.html.twig');
