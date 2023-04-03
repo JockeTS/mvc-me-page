@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Lucky {% endblock %}
+
+{% block body %}
+    <img width="500" height="333" src="{{ asset('img/magic-number.jpeg') }}" alt="random numbers">
+    <p>Your magic number is: {{ number }}</p>
+{% endblock %}
