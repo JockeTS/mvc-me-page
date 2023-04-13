@@ -87,3 +87,10 @@ img {
 .card-nav a:hover {
     background-color: #cab095;
 }
+
+div.card {
+    border: 1px solid black;
+    margin: 0.5em;
+    padding: 0.5em;
+    display: inline-block;
+}

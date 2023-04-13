@@ -4,4 +4,8 @@
 
 {% block main %}
     <p>Deck showing all cards sorted by suit and value.</p>
+
+    {% for card in cards %}
+        <div class="card"> {{ card }} </div>
+    {% endfor %}
 {% endblock %}
