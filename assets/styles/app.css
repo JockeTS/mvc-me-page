@@ -71,3 +71,19 @@ img {
 .center {
     text-align: center;
 }
+
+.card-nav {
+    background-color: #856c69;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card-nav a {
+    color: #fff;
+    padding: 1em;
+}
+
+.card-nav a:hover {
+    background-color: #cab095;
+}

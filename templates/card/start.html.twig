@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Card Game {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('deck') }}">Deck</a>
+        <a href="{{ path('deck_shuffle') }}">Deck Shuffle</a>
+    </nav>
+
+    {% block main %}
+        <p>Here is my card game</p>
+    {% endblock %}
+{% endblock %}
