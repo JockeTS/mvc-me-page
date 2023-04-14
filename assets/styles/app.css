@@ -94,3 +94,7 @@ div.card {
     padding: 0.5em;
     display: inline-block;
 }
+
+.test {
+    background-color: green;
+}

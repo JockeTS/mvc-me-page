@@ -4,4 +4,8 @@
 
 {% block main %}
     <p>Deck showing all cards after shuffling.</p>
+
+    {% for card in cards %}
+        <div class="card"> {{ card }} </div>
+    {% endfor %}
 {% endblock %}

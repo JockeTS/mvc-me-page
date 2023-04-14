@@ -1,0 +1,13 @@
+{% extends "card/start.html.twig" %}
+
+{% block title %} Deck Draw {% endblock %}
+
+{% block main %}
+    <p>Deck showing n cards drawn.</p>
+
+    {% for card in drawnCards %}
+        <div class="card"> {{ card }} </div>
+    {% endfor %}
+
+    <p>Cards left in deck: {{ cardsLeft }}</p>
+{% endblock %}
