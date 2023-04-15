@@ -3,9 +3,12 @@
 {% block title %} Deck {% endblock %}
 
 {% block main %}
-    <p>Deck showing all cards sorted by suit and value.</p>
+    <p>{{ description }}</p>
 
     {% for card in cards %}
-        <div class="card"> {{ card }} </div>
+        {% set parts = card|split(',') %}
+        <div class="card {{ parts[1] }}"> 
+            {{ parts[0] }}
+        </div>
     {% endfor %}
 {% endblock %}

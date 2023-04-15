@@ -6,7 +6,10 @@
     <p>Deck showing n cards drawn.</p>
 
     {% for card in drawnCards %}
-        <div class="card"> {{ card }} </div>
+        {% set parts = card|split(',') %}
+        <div class="card {{ parts[1] }}"> 
+            {{ parts[0] }}
+        </div>
     {% endfor %}
 
     <p>Cards left in deck: {{ cardsLeft }}</p>

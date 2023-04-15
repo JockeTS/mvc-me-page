@@ -101,6 +101,14 @@ div.card {
     display: inline-block;
 }
 
+.card.blk {
+    color: black;
+}
+
+.card.red {
+    color: red;
+}
+
 ul li {
     margin: 0.5em;
 }

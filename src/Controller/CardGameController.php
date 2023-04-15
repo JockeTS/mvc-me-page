@@ -33,6 +33,7 @@ class CardGameController extends AbstractController
         $cardStringsArr = $deck->getCardStrings();
 
         $data = [
+            "description" => "Deck showing all cards sorted by suit and value.",
             "cards" => $cardStringsArr
         ];
 
@@ -50,10 +51,11 @@ class CardGameController extends AbstractController
         $cardStringsArr = $deck->getCardStrings();
 
         $data = [
+            "description" => "Deck showing all cards after shuffling.",
             "cards" => $cardStringsArr
         ];
 
-        return $this->render('card/deck_shuffle.html.twig', $data);
+        return $this->render('card/deck.html.twig', $data);
     }
 
     // Draw 1 card from deck
