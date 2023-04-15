@@ -4,7 +4,7 @@ namespace App\Card;
 
 class CardGraphic extends Card
 {
-    private $suitRepr = ["♠", "♥", "♣", "♦"];
+    private $suitRepr = ["♠blk", "♥red", "♣blk", "♦red"];
     
     private $valueRepr = [
         "A", "2", "3", "4", "5",

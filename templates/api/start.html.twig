@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %} API {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('quote') }}">quote</a>
+        <a href="{{ path('api_deck') }}">deck</a>
+        <form class="api-form" action="{{ path('api_deck_draw_many') }}" method="POST">
+            <input type="submit" name="shuffle" value="Shuffle" 
+                onClick="this.form.action='{{ path('api_deck_shuffle') }}';">
+
+            <input type="submit" name="draw-one" value="Draw 1" 
+                onClick="this.form.action='{{ path('api_deck_draw_one') }}';">
+
+            <span>
+                <input type="number" name="draw-many" value="3" >
+                <input type="submit" value="Draw N">
+            </span>
+        </form>
+    </nav>
+
+    {% block main %}
+        <p>Följande API routes finns tillgängliga:</p>
+
+        <ul>
+            <li>'quote': väljer slumpmässigt ett av tre citat. Returnerar detta i JSON-format tillsammans med
+            dagens datum och senast aktuella tidsstämpel.</li>
+
+            <li>'deck': sorterar kortleken och returnerar den i JSON-format.</li>
+
+            <li>'deck/shuffle': blandar kortleken och returnerar den i JSON-format.</li>
+
+            <li>'deck/draw': drar 1 kort som returneras i JSON-format
+            tillsammans med antalet i leken kvarvarande kort.</li>
+
+            <li>'deck/draw/number': drar N kort som returneras i JSON-format
+            tillsammans med antalet i leken kvarvarande kort.</li>
+        </ul>
+    {% endblock %}
+{% endblock %}
