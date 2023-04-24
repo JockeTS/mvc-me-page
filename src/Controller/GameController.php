@@ -39,8 +39,14 @@ class GameController extends AbstractController
         $playerStrings = $game->getPlayerStrings();
 
         $data = [
-            "players" => $playerStrings
+            "players" => $playerStrings,
+            "message" => ""
         ];
+
+        if ($game->gameOver) {
+            $winner = "Player X";
+            $data["message"] = "Player X wins";
+        }
 
         return $this->render('game/main.html.twig', $data);
     }

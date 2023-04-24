@@ -21,12 +21,21 @@
             </div>
         {% endfor %}
 
-        <button type="button" onClick="location.href='{{ path('game_add_card') }}';">
-            Draw
-        </button>
+        {% if message %}
+            {{ message }}
 
-        <button type="button" onClick="location.href='{{ path('game_stop') }}';">
-            Stop
-        </button>
+            <button type="button" onClick="location.href='{{ path('game_init') }}';">
+                Restart
+            </button>
+        {% else %}
+            <button type="button" onClick="location.href='{{ path('game_add_card') }}';">
+                Draw
+            </button>
+
+            <button type="button" onClick="location.href='{{ path('game_stop') }}';">
+                Stop
+            </button>
+        {% endif %}
+
     {% endblock %}
 {% endblock %}

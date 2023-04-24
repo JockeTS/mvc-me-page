@@ -11,6 +11,7 @@ class Game
     public DeckOfCards $deck;
     public array $players;
     public int $activePlayerIndex;
+    public bool $gameOver;
 
     public function __construct(int $numPlayers)
     {
@@ -25,6 +26,7 @@ class Game
         // Create bank player last
 
         $this->activePlayerIndex = 0;
+        $this->gameOver = false;
     }
 
     // Get string representation of all players
@@ -56,12 +58,31 @@ class Game
 
         $activePlayer->cards[] = $card;
 
-        // Add score
-        // $activePlayer->scores[0] += $card->value;
+        $scores = $activePlayer->getScore();
+
+        $bust = true;
+
+        foreach ($scores as $score) {
+            if ($score < 21) {
+                $bust = false;
+                break;
+            }
+        }
+
+        if ($bust) {
+            $this->setActivePlayer();
+        }
     }
 
     public function setActivePlayer(): void
     {
-        $this->activePlayerIndex += 1;
+        if ($this->activePlayerIndex < count($this->players) - 1) {
+            $this->activePlayerIndex += 1;
+        } else {
+            // Get winning player and end game
+            $this->gameOver = true;
+        }
     }
+
+    // public function getWinningPlayer
 }
