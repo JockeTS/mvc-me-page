@@ -28,7 +28,7 @@ class Player
 
         $playerStr = [
             "name" => $this->name,
-            "scores" => join("/", $this->getScore()),
+            "scores" => join("/", $this->getScores()),
             "cards" => $cardsString,
             "style" => "inactive"
         ];
@@ -36,7 +36,7 @@ class Player
         return $playerStr;
     }
 
-    public function getScore(): array
+    public function getScores(): array
     {
         $scores = [0];
         $numAces = 0;
@@ -54,5 +54,26 @@ class Player
         }
 
         return $scores;
+    }
+
+    public function getBestScore(): int
+    {
+        $scores = $this->getScores();
+
+        $validScores = [];
+
+        foreach ($scores as $score) {
+            if ($score <= 21) {
+                $validScores[] = $score;
+            }
+        }
+
+        rsort($validScores);
+
+        if ($validScores) {
+            return $validScores[0];
+        }
+
+        return 0;
     }
 }

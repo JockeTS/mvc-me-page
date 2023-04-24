@@ -39,7 +39,7 @@ class Game
         foreach ($this->players as $player) {
             $playerStrings[] = $player->getAsString();
 
-            if ($i == $this->activePlayerIndex) {
+            if ($i == $this->activePlayerIndex && !$this->gameOver) {
                 $playerStrings[$i]["style"] = "active";
             }
 
@@ -58,7 +58,7 @@ class Game
 
         $activePlayer->cards[] = $card;
 
-        $scores = $activePlayer->getScore();
+        $scores = $activePlayer->getScores();
 
         $bust = true;
 
@@ -78,11 +78,38 @@ class Game
     {
         if ($this->activePlayerIndex < count($this->players) - 1) {
             $this->activePlayerIndex += 1;
+
+            if ($this->activePlayerIndex == count($this->players) - 1) {
+                $this->playBank();
+            }
         } else {
-            // Get winning player and end game
+            // End game
             $this->gameOver = true;
         }
     }
 
-    // public function getWinningPlayer
+    public function playBank(): void
+    {
+        $bank = $this->players[$this->activePlayerIndex];
+
+        $this->addCard();
+
+        while ($bank->getBestScore() != 0 && $bank->getBestScore() <= 17) {
+            $this->addCard();
+            var_dump($bank->getBestScore());
+        }
+
+        $this->gameOver = true;
+    }
+
+    public function getWinningPlayer(): string
+    {
+        $validScores = [];
+
+        foreach ($this->players as $player) {
+            $validScores[] = $player->getBestScore();
+        }
+
+        return "Player Y wins";
+    }
 }
