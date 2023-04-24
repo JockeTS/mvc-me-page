@@ -6,16 +6,26 @@ use App\Card\Card;
 
 class DeckOfCards
 {
-    private $deck = [];
+    private array $deck = [];
 
-    function __construct() {
+    public function __construct()
+    {
         // Populate the deck with cards
+        foreach (array_keys(Card::SUITS) as $i) {
+            foreach (array_keys(CARD::VALUES) as $j) {
+                $card = new CardGraphic($i, $j);
+                $this->addCard($card);
+            }
+        }
+
+        /*
         for ($i = 0; $i < count(Card::SUITS); $i++) {
             for ($j = 0; $j < count(Card::VALUES); $j++) {
                 $card = new CardGraphic($i, $j);
                 $this->addCard($card);
             }
         }
+        */
     }
 
     // Add card
@@ -27,7 +37,8 @@ class DeckOfCards
     // Remove card
 
     // Draw card
-    public function drawCards($number) {
+    public function drawCards(int $number): array
+    {
         $drawnCards = [];
 
         for ($i = 0; $i < $number; $i++) {
@@ -40,6 +51,13 @@ class DeckOfCards
         }
 
         return $drawnCards;
+    }
+
+    public function drawCard(): Card
+    {
+        $card = array_shift($this->deck);
+
+        return $card;
     }
 
     public function getCardStrings(): array

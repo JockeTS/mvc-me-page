@@ -30,8 +30,6 @@ class RootController extends AbstractController
     #[Route("/lucky", name: "lucky")]
     public function lucky(): Response
     {
-        $number = random_int(0, 100);
-
         $data = [
             'number' => random_int(0, 100)
         ];

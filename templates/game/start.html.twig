@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Game {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('game_doc') }}">Doc</a>
+    </nav>
+
+    {% block main %}
+        <h3>Tjugoett</h3>
+
+        <p>Tjugoett är ett kortspel som till mångt och mycket är en svensk variant av Black Jack.</p>
+
+        <p>Det går ut på att med två eller fler kort komma så nära värdet 21 som möjligt.</p>
+
+        <p>Hamnar man över 21 så "spricker" man och förlorar.</p>
+
+        <p>Man spelar mot banken som har en fördel gentemot spelaren i och med att banken vinner om
+        båda har uppnåt samma värde eller om banken har fått 21.</p>
+
+        <button type="button" onClick="location.href='{{ path('game_init') }}';">
+            Starta Spelet
+        </button>
+    {% endblock %}
+{% endblock %}

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class CardGameController extends AbstractController
+class CardController extends AbstractController
 {
     // Landing page of card game, resets the deck
     #[Route("/card", name: "card")]
@@ -23,7 +23,7 @@ class CardGameController extends AbstractController
         return $this->render('card/start.html.twig');
     }
 
-    // Sort cards sorted by suit and value
+    // Show cards sorted by suit and value
     #[Route("/card/deck", name: "deck")]
     public function deck(SessionInterface $session): Response
     {
@@ -77,8 +77,7 @@ class CardGameController extends AbstractController
     public function drawMany(
         int $num,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session->get("deck");
 
         $data = [

@@ -120,3 +120,13 @@ ul li {
 input[type='number']{
     width: 40px;
 }
+
+.player {
+    border: 1px solid black;
+    margin-bottom: 1.4rem;
+    padding: 0.7rem;
+}
+
+.active {
+    border: 3px solid green;
+}

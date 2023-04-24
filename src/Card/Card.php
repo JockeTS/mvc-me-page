@@ -4,18 +4,18 @@ namespace App\Card;
 
 class Card
 {
-    protected $suit;
-    protected $value;
+    public int $suit;
+    public int $value;
 
-    const SUITS = ["Spades", "Hearts", "Clubs", "Diamonds"];
+    public const SUITS = ["Spades", "Hearts", "Clubs", "Diamonds"];
 
-    const VALUES = [
+    public const VALUES = [
         "Ace", "Two", "Three", "Four", "Five",
         "Six", "Seven", "Eight", "Nine", "Ten",
         "Jack", "Queen", "King"
     ];
 
-    public function __construct($suit, $value)
+    public function __construct(int $suit, int $value)
     {
         $this->suit = $suit;
         $this->value = $value;

@@ -65,6 +65,42 @@
 
     <section id="kmom02">
         <h2>Kmom02</h2>
+
+        <h3>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</h3>
+
+        <p>Arv används bland annat för att kunna skapa basklasser som andra klasser kan ärva ifrån. På så sätt kan man skapa olika specialiseringar av en klass utan att behöva skriva om grundkoden varje gång. Detta visades exempel på i både övningen med Pig-spelet och uppgiften där CardGraphics ärvde från Card.</p>
+
+        <p>Komposition för klasser och objekt handlar om "livscykeln" för objekt. Om objekt 1 har ett kompositionsförhållande till objekt 2 så innebär det att objekt 1 bara existerar i förhållande till objekt 2.</p>
+
+        <p>Alltså kan objekt 1 inte existera självständigt utan det "ägs" till fullo av objekt 2. Detta såg vi också exempel på i uppgiften där Card bara kan existera inuti en DeckOfCards (i alla fall på det sättet jag valde att implementera det).</p>
+
+        <p>Ett interface kan liknas vid ett kontrakt som de klasser som implementerar interface:t måste uppfylla. Det handlar alltså om en samling metoder som måste finnas i de klasser som implementerar interface:t.</p>
+
+        <p>Det måste vara samma metodnamn, parametrar, returtyper m.m men i övrigt är det fritt att utforma metoderna som man vill. På detta sätt kan objekt från olika klasser i vissa sammanhang behandlas på samma sätt så länge de implementerar samma interface.</p>
+
+        <p>Traits är på liknande sätt som interface en samling metoder som kan användas av flera klasser. Skillnaden är att metoderna i en trait redan är definierade och inte behöver definieras i de klasser som använder trait:et.</p>
+
+        <h3>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</h3>
+
+        <p>Jag gjorde övningen för Pig-spelet och använde sedan en liknande struktur för att implementera uppgiften. Hade en del problem med diverse felmeddelanden från Symfony vilket gjorde att det drog ut på tiden. Jag är ändå rätt nöjd med slutresultatet även om det såklart går att förbättra mycket.</p>
+
+        <p>Jag gjorde inte exakt som i kraven på alla punkter. Bland annat så valde jag att ha det så att kortleken som sparas i session återställs varje gång man besöker landningssidan. Sedan använder man samma kortlek i de övriga rutterna.</p>
+
+        <p>Alltså kan man både sortera, blanda och dra kort i vilken ordning man vill. Jag valde att ge varje Card-objekt ett numeriskt värde för både svit och valör just för att underlätta sorteringen.</p>
+
+        <p>Utseendemässigt så har korten just nu en väldigt basic style med enbart siffra och symbol. Så det är väl nåt som jag gärna skulle förbättra i kommande kmom. Jag lyckades i alla fall få till olika färger för sviterna men jag vet inte om sättet detta implementerades på var det optimala.</p>
+
+        <h3>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och pseudokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</h3>
+
+        <p>Just i detta fallet kände jag inte att det hjälpte så mycket eftersom uppgiften var ganska lik övningen vilket gjorde att jag från början hade en ganska bra aning om hur klasserna skulle se ut. Sen tycker jag det kan vara svårt att börja rita flödesdiagram innan man börjar skriva kod och det känns som man får ändra mycket i efterhand.</p>
+
+        <p>Men jag antar att det är en fråga om övning och vad som skiljer en bra utvecklare från en mindre bra - att kunna se hela problemet framför sig och hur man ska lösa det utan att börja med en implementering som kanske är ett slöseri på tid.</p>
+
+        <h3>Vilken är din TIL för detta kmom?</h3>
+
+        <p>Det är återigen en blandning av många olika saker. Har blivit mer bekväm med Symfony som ramverk efter en del frustration med att komma igång. Sedan är det många koncept inom objektorientering och PHP som har antingen fräschats upp från tidigare kurser eller lärts från början.</p>
+
+        <p>Har även försökt förbättra mitt Git-flöde och jobba på en sak i taget för att därefter göra en commit med ett beskrivande meddelande. Gillade även att använda cs-fixer för att dels se vilka avvikelser man gjort från Symfonys kodstandard samt att få det åtgärdat med ett enskilt kommando i terminalen.</p>
     </section>
 
     <section id="kmom03">

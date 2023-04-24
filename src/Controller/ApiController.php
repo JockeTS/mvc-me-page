@@ -101,8 +101,7 @@ class ApiController extends AbstractController
     public function apiDeckDrawMany(
         Request $request,
         SessionInterface $session
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $numCards = $request->request->get('draw-many');
 
         $deck = $session->get("deck");
