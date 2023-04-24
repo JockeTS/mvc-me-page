@@ -19,11 +19,14 @@ class Game
         $this->deck = new DeckOfCards();
         $this->deck->shuffleCards();
 
+        /*
         for ($i = 0; $i < $numPlayers; $i++) {
             $this->players[] = new Player("Player " . $i);
         }
+        */
         
-        // Create bank player last
+        $this->players[] = new Player("Player");
+        $this->players[] = new Player("Bank");
 
         $this->activePlayerIndex = 0;
         $this->gameOver = false;
@@ -69,7 +72,7 @@ class Game
             }
         }
 
-        if ($bust) {
+        if ($bust || $activePlayer->getBestScore() == 21) {
             $this->setActivePlayer();
         }
     }
@@ -96,7 +99,6 @@ class Game
 
         while ($bank->getBestScore() != 0 && $bank->getBestScore() <= 17) {
             $this->addCard();
-            var_dump($bank->getBestScore());
         }
 
         $this->gameOver = true;
@@ -104,12 +106,33 @@ class Game
 
     public function getWinningPlayer(): string
     {
+        $humanScore = $this->players[0]->getBestScore();
+        $bankScore = $this->players[1]->getBestScore();
+
+        if ($humanScore > 21 || $humanScore == $bankScore) {
+            return "Bank wins!";
+        }
+
+        if ($bankScore > 21 || $humanScore > $bankScore) {
+            return "Player wins!";
+        }
+
+        /*
+        if ($humanScore == $bankScore) {
+            return "Bank wins!";
+        }
+
+        if ($humanScore > $bankScore) {
+            return "Player wins!";
+        }
+
         $validScores = [];
 
         foreach ($this->players as $player) {
             $validScores[] = $player->getBestScore();
         }
+        */
 
-        return "Player Y wins";
+        return "Bank wins!";
     }
 }

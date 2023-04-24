@@ -44,7 +44,6 @@ class GameController extends AbstractController
         ];
 
         if ($game->gameOver) {
-            $winner = "Player X";
             $data["message"] = $game->getWinningPlayer();
         }
 
