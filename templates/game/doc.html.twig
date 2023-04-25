@@ -14,6 +14,14 @@
 
         <h4>Pseudokod</h4>
 
+        <p>Ett nytt Game-objekt skapas vid starten av varje nytt spel. Detta objekt skapar i sin tur ett nytt DeckOfCards-objekt och blandar korten. Därefter skapas även två Player-objekt där bank-spelaren skapas sist (och därmed blir den som spelar sist).</p>
+
+        <p>Därefter visas huvudvyn (main) och spelaren ställs inför valet att antingen dra ett kort eller stanna. Drar man ett kort så går spelet till "add"-rutten vilken bara hämtar Game-objectet från sessionen och lägger till ett kort till den aktiva spelaren. Därefter sparas Game i session och redirect:ar till main-vyn.</p>
+
+        <p>Om man istället väljer att stanna så går spelet till "stop"-rutten vilken gör samma som ovan men istället för att lägga till ett kort så ändras den aktiva spelaren till nästa i turordningen.</p>
+
+        <p>Om man kommit till den sista spelaren så innebär det att det är bankens tur. Då körs metoden playBank vilken drar kort tills den lägsta poängen är 17 eller mer. Därefter sätts flaggan gameOver till true varpå spelet räknar ut vem som vann och ersätter knapparna med en restart-knapp.</p>
+
         <h4>Klassbeskrivning</h4>
 
         <p>GameController: en egen controller för kortspelet tjugoett för att hantera spelets olika rutter och förhindra att övriga controllers blir alltför röriga.</p>
