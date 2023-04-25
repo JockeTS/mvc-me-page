@@ -15,7 +15,7 @@ class GameController extends AbstractController
 {
     // Landing page of game
     #[Route("/game", name: "game_start")]
-    public function gameStart(SessionInterface $session): Response
+    public function gameStart(): Response
     {
         return $this->render('game/start.html.twig');
     }
@@ -25,7 +25,7 @@ class GameController extends AbstractController
     public function gameInit(SessionInterface $session): Response
     {
         // Init a new game
-        $game = new Game(2);
+        $game = new Game();
         $session->set("game", $game);
         return $this->redirectToRoute('game_main');
     }
@@ -77,7 +77,7 @@ class GameController extends AbstractController
 
     // Documentation page
     #[Route("/game/doc", name: "game_doc")]
-    public function gameDoc(SessionInterface $session): Response
+    public function gameDoc(): Response
     {
         return $this->render('game/doc.html.twig');
     }

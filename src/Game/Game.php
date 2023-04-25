@@ -13,7 +13,7 @@ class Game
     public int $activePlayerIndex;
     public bool $gameOver;
 
-    public function __construct(int $numPlayers)
+    public function __construct()
     {
         // Create deck used for game
         $this->deck = new DeckOfCards();
@@ -24,7 +24,7 @@ class Game
             $this->players[] = new Player("Player " . $i);
         }
         */
-        
+
         $this->players[] = new Player("Player");
         $this->players[] = new Player("Bank");
 
@@ -37,16 +37,12 @@ class Game
     {
         $playerStrings = [];
 
-        $i = 0;
-
-        foreach ($this->players as $player) {
+        foreach ($this->players as $key=>$player) {
             $playerStrings[] = $player->getAsString();
 
-            if ($i == $this->activePlayerIndex && !$this->gameOver) {
-                $playerStrings[$i]["style"] = "active";
+            if ($key == $this->activePlayerIndex && !$this->gameOver) {
+                $playerStrings[$key]["style"] = "active";
             }
-
-            $i += 1;
         }
 
         return $playerStrings;
@@ -85,10 +81,11 @@ class Game
             if ($this->activePlayerIndex == count($this->players) - 1) {
                 $this->playBank();
             }
-        } else {
-            // End game
-            $this->gameOver = true;
+
+            return;
         }
+
+        $this->gameOver = true;
     }
 
     public function playBank(): void
