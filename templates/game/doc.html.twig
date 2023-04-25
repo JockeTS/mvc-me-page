@@ -4,10 +4,22 @@
 
 {% block body %}
     <nav class="card-nav">
-        <a href="{{ path('game_doc') }}">Doc</a>
+        <a href="{{ path('game_start') }}">Game</a>
     </nav>
 
     {% block main %}
         <h3>Dokumentation</h3>
+
+        <h4>Flödesschema</h4>
+
+        <h4>Pseudokod</h4>
+
+        <h4>Klassbeskrivning</h4>
+
+        <p>GameController: en egen controller för kortspelet tjugoett för att hantera spelets olika rutter och förhindra att övriga controllers blir alltför röriga.</p>
+
+        <p>Game: den centrala klassen för spelet. Håller koll på kortleken, spelarna och vems tur det är samt om spelet är slut eller inte. Innehåller även en metod för att låta banken spelar när det är dennes tur.</p>
+
+        <p>Player: en instans av spelarklassen skapas för varje deltagare och den håller koll på spelarens namn och vilka kort denna har dragit. Innehåller även ett antal metoder för att beräkna de olika poäng som kan uppnås utifrån vilka kort man dragit (pga att ess kan räknas som 1 eller 14).</p>
     {% endblock %}
 {% endblock %}
