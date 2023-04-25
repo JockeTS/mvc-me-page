@@ -97,7 +97,7 @@ class Game
 
         $this->addCard();
 
-        while ($bank->getBestScore() != 0 && $bank->getBestScore() <= 17) {
+        while ($bank->getLowestScore() != 0 && $bank->getLowestScore() <= 17) {
             $this->addCard();
         }
 
@@ -109,6 +109,10 @@ class Game
         $humanScore = $this->players[0]->getBestScore();
         $bankScore = $this->players[1]->getBestScore();
 
+        if (!$this->gameOver) {
+            return "TBD";
+        }
+
         if ($humanScore > 21 || $humanScore == $bankScore) {
             return "Bank wins!";
         }
@@ -116,22 +120,6 @@ class Game
         if ($bankScore > 21 || $humanScore > $bankScore) {
             return "Player wins!";
         }
-
-        /*
-        if ($humanScore == $bankScore) {
-            return "Bank wins!";
-        }
-
-        if ($humanScore > $bankScore) {
-            return "Player wins!";
-        }
-
-        $validScores = [];
-
-        foreach ($this->players as $player) {
-            $validScores[] = $player->getBestScore();
-        }
-        */
 
         return "Bank wins!";
     }

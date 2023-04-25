@@ -76,4 +76,25 @@ class Player
 
         return 0;
     }
+
+    public function getLowestScore(): int
+    {
+        $scores = $this->getScores();
+
+        $validScores = [];
+
+        foreach ($scores as $score) {
+            if ($score <= 21) {
+                $validScores[] = $score;
+            }
+        }
+
+        sort($validScores);
+
+        if ($validScores) {
+            return $validScores[0];
+        }
+
+        return 0;
+    }
 }

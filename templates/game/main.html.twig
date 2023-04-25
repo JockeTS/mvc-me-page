@@ -4,8 +4,6 @@
 
 {% block body %}
     {% block main %}
-        <p>Card Game Main</p>
-
         {% for player in players %}
             <div class="player {{ player.style }}">
                 <p>Name: {{ player.name }}</p>

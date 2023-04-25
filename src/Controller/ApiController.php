@@ -117,4 +117,23 @@ class ApiController extends AbstractController
 
         return $response;
     }
+
+    // Get state of current game stored in session
+    #[Route("/api/game", name: "api_game", methods: ['GET'])]
+    public function apiGame(SessionInterface $session): JsonResponse
+    {
+        $game = $session->get("game");
+
+        $response = new JsonResponse([
+            "gameOver" => $game->gameOver,
+            "players" => $game->getPlayerStrings(),
+            "winner" => explode(" ", $game->getWinningPlayer())[0]
+        ]);
+
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
 }
