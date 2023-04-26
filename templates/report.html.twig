@@ -105,6 +105,42 @@
 
     <section id="kmom03">
         <h2>Kmom03</h2>
+
+        <h3>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och pseudokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</h3>
+
+        <p>Jag måste erkänna att jag fann det ganska svårt att i förväg planera hela applikationen beväpnad med enbart papper och penna. Det hjälpte dock en del att lyssna på föreläsningen om Polya och top-down respektive bottom-up-perspektiven.</p>
+
+        <p>Framförallt om hur man kan kombinera de båda. Så jag tror att det i alla fall för mig personligen är den rätta vägen framåt i fortsättningen. Det är svårt att se allt klart framför sig innan man börjar bygga, även för ganska simpla applikationer.</p>
+
+        <p>Samtidigt så hjälper det mycket att planera även de gånger planeringen inte blir så bra då det blir lättare att veta var man ska börja och man får ett hum om helheten redan från början.</p>
+
+        <p>Det optimala kanske vore att ha både planera och bygga parallellt så man kan växla om man kör fast i det ena. Men jag vet inte om det anses korrekt i utvecklar-världen.</p>
+
+        <h3>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden, dina klasser och applikationen som helhet?</h3>
+
+        <p>Jag löste uppgiften genom att ha en klass för själva spel-objektet som innehåller olika metoder för att dra kort, byta spelare, spela åt banken m.m. Dessa metoder aktiveras till största del från de olika rutterna som är definierade för spelet.</p>
+
+        <p>För en mänsklig spelare kommer man till dessa rutter genom att trycka på de olika knapparna medan banken kallar på metoderna direkt inne i Game-objektet. Utöver detta finns det även en klass för spelare som främst innehåller de kort som en spelare har dragit.</p>
+
+        <p>Jag hade först tänkt ha ett attribut för poäng men det komplicerades lite av att ess kan räknas som både 1 och 14. Så det fick bli en metod som beräknar vilka poäng som är möjliga givet vilka kort man har istället. När det gäller hur banken spelar så blev det en ganska enkel implementation.</p>
+
+        <p>Banken drar ett till kort så länge dess lägsta giltiga värde är mindre än sjutton. Här inser jag att det finns en del utrymme för förbättring och jag testade lite olika varianter men det var den som jag ansåg fungerade bäst.</p>
+
+        <p>Tycker även att koden blev lite rörig och kan tänka mig att det skulle kunna vara frustrerande att sätta sig in i koden för en utomstående. Så jag skulle gärna rensa upp lite och även utöka stöd för fler spelare än två.</p>
+
+        <h3>Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?</h3>
+
+        <p>Jag börjar vänja mig mer och mer med att använda ramverk som Symfony nu, efter en del initial frustration. Det hjälper ju en del också att ramverken vi hittills använt i kursen är ganska lika varandra.</p>
+
+        <p>Det är generellt olika rutter som utför något och sedan antingen renderar en vy eller redirectar till en vy. Det som gör det lite mer utmanande är när det ska kombineras med objektorienterad PHP, vars syntax fortfarande gör mig lite förvirrad ibland.</p>
+
+        <p>Men jag kände att det klarnade mer i det här kmomet då man fick träna mycket på att skapa egna klasser och sedan på olika sätt jobba med objekten i koden.</p>
+
+        <h3>Vilken är din TIL för detta kmom?</h3>
+
+        <p>TIL är som sagt att jag fått en större förståelse och vana för den objektorienterade biten samt Symfony i sig. Har även lärt mig hur man kan tänka och planera kring en applikation (eller problem generellt) så att man inte bara hoppar in i ett projekt och prövar sig fram.</p>
+
+        <p>Det har även varit lärorikt att programmera ett spel då det är ett lite annat sätt att tänka än "vanliga" projekt. Man måste ha bra koll på alla steg i spelet och sannolikheten för buggar eller att man missat nåt känns stor.</p>
     </section>
 
     <section id="kmom04">
