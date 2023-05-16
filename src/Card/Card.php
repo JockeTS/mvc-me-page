@@ -1,5 +1,10 @@
 <?php
 
+/** 
+ * Playing card implementation.
+ */
+
+
 namespace App\Card;
 
 class Card
@@ -7,6 +12,9 @@ class Card
     public int $suit;
     public int $value;
 
+    /**
+     * Represents the 4 traditional suites.
+     */
     public const SUITS = ["Spades", "Hearts", "Clubs", "Diamonds"];
 
     public const VALUES = [

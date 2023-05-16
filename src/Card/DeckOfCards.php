@@ -28,7 +28,10 @@ class DeckOfCards
         */
     }
 
-    // Add card
+    /**
+     * Add a card
+     * @param Card $card The card to add
+     */
     private function addCard(Card $card): void
     {
         $this->deck[] = $card;
