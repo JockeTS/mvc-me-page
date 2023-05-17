@@ -316,6 +316,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Game-Player.html#method___construct"
         },                {
+            "fqsen": "\\App\\Game\\Player\u003A\u003AaddCard\u0028\u0029",
+            "name": "addCard",
+            "summary": "",
+            "url": "classes/App-Game-Player.html#method_addCard"
+        },                {
             "fqsen": "\\App\\Game\\Player\u003A\u003AgetAsString\u0028\u0029",
             "name": "getAsString",
             "summary": "",

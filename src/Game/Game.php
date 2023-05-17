@@ -55,7 +55,8 @@ class Game
 
         $card = $this->deck->drawCard();
 
-        $activePlayer->cards[] = $card;
+        // $activePlayer->cards[] = $card;
+        $activePlayer->addCard($card);
 
         $scores = $activePlayer->getScores();
 

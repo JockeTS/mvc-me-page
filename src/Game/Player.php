@@ -15,6 +15,10 @@ class Player
         $this->cards = [];
     }
 
+    public function addCard($card) {
+        $this->cards[] = $card;
+    }
+
     // Get player object as string
     public function getAsString(): array
     {
