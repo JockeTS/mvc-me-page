@@ -253,7 +253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Game",
             "name": "Game",
-            "summary": "",
+            "summary": "Class\u0020to\u0020handle\u0020overall\u0020logic\u0020of\u0020card\u0020game.",
             "url": "classes/App-Game-Game.html"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003A__construct\u0028\u0029",
@@ -263,27 +263,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003AgetPlayerStrings\u0028\u0029",
             "name": "getPlayerStrings",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020array\u0020with\u0020all\u0020players\nrepresented\u0020as\u0020arrays\u0020of\u0020strings.",
             "url": "classes/App-Game-Game.html#method_getPlayerStrings"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003AaddCard\u0028\u0029",
             "name": "addCard",
-            "summary": "",
+            "summary": "Adds\u0020a\u0020new\u0020Card\u0020object\u0020from\u0020top\u0020of\u0020the\u0020deck\nto\u0020whichever\u0020player\u0020is\u0020currently\u0020active.",
             "url": "classes/App-Game-Game.html#method_addCard"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003AsetActivePlayer\u0028\u0029",
             "name": "setActivePlayer",
-            "summary": "",
+            "summary": "Sets\u0020active\u0020player\u0020index\u0020to\u0020current\u0020value\u0020\u002B\u00201.",
             "url": "classes/App-Game-Game.html#method_setActivePlayer"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003AplayBank\u0028\u0029",
             "name": "playBank",
-            "summary": "",
+            "summary": "Simulate\u0020playing\u0020as\u0020the\u0020bank.",
             "url": "classes/App-Game-Game.html#method_playBank"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003AgetWinningPlayer\u0028\u0029",
             "name": "getWinningPlayer",
-            "summary": "",
+            "summary": "Create\u0020a\u0020string\u0020representation\u0020of\u0020whichever\nplayer\u0020has\u0020won\u0020the\u0020game.",
             "url": "classes/App-Game-Game.html#method_getWinningPlayer"
         },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003A\u0024deck",
