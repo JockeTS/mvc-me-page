@@ -6,6 +6,11 @@ use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Game\Player;
 
+/**
+ * Class to handle overall logic of card game.
+ * DeckOfCards and Player objects are created automatically
+ * with each new instance.
+ */
 class Game
 {
     public DeckOfCards $deck;
@@ -32,7 +37,10 @@ class Game
         $this->gameOver = false;
     }
 
-    // Get string representation of all players
+    /**
+     * Creates a new array with all players
+     * represented as arrays of strings.
+     */
     public function getPlayerStrings(): array
     {
         $playerStrings = [];
@@ -48,7 +56,12 @@ class Game
         return $playerStrings;
     }
 
-    // Add a card to the active player
+    /**
+     * Adds a new Card object from top of the deck
+     * to whichever player is currently active.
+     * If a player scores 21 or above (bust)
+     * the game automatically moves to the next player's turn.
+     */
     public function addCard(): void
     {
         $activePlayer = $this->players[$this->activePlayerIndex];
@@ -74,6 +87,11 @@ class Game
         }
     }
 
+    /**
+     * Sets active player index to current value + 1.
+     * Changes game state to game over if all players
+     * have finished their turns.
+     */
     public function setActivePlayer(): void
     {
         if ($this->activePlayerIndex < count($this->players) - 1) {
@@ -89,6 +107,11 @@ class Game
         $this->gameOver = true;
     }
 
+    /**
+     * Simulate playing as the bank.
+     * The bank adds another card to their hand
+     * as long as their lowest score is 17 or below.
+     */
     public function playBank(): void
     {
         $bank = $this->players[$this->activePlayerIndex];
@@ -102,6 +125,10 @@ class Game
         $this->gameOver = true;
     }
 
+    /**
+     * Create a string representation of whichever
+     * player has won the game.
+     */
     public function getWinningPlayer(): string
     {
         $humanScore = $this->players[0]->getBestScore();
