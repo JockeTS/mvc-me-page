@@ -23,7 +23,8 @@ class GameTest extends TestCase
      * Give players a card each and make sure
      * string reprs. match.
      */
-    public function testGetPlayerStrings() {
+    public function testGetPlayerStrings()
+    {
         $game = new Game();
         $game->deck->sortCards();
 
@@ -57,7 +58,8 @@ class GameTest extends TestCase
      * Test that setting the active player
      * changes activePlayerIndex
      */
-    public function testSetActivePlayer() {
+    public function testSetActivePlayer()
+    {
         $game = new Game();
 
         // Make sure api starts at 0
@@ -75,7 +77,8 @@ class GameTest extends TestCase
     /**
      * Test various conditions for getWinningPlayer
      */
-    public function testGetWinningPlayer() {
+    public function testGetWinningPlayer()
+    {
         $game = new Game();
 
         // Check before game is over

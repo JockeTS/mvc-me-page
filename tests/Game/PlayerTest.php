@@ -29,7 +29,8 @@ class PlayerTest extends TestCase
      * after giving them a card.
      * This should affect both score and cards held.
      */
-    public function testGetAsString() {
+    public function testGetAsString()
+    {
         $deck = new DeckOfCards();
         $player = new Player("Jocke");
 
@@ -52,7 +53,8 @@ class PlayerTest extends TestCase
      * Give player a card and make sure
      * correct array of scores is returned.
      */
-    public function testGetScores() {
+    public function testGetScores()
+    {
         $deck = new DeckOfCards();
         $player = new Player("Jocke");
 
@@ -70,7 +72,8 @@ class PlayerTest extends TestCase
      * which should give scores of 1 and 14
      * Make sure method returns 14 (highest score)
      */
-    public function testGetBestScore() {
+    public function testGetBestScore()
+    {
         $deck = new DeckOfCards();
         $player = new Player("Jocke");
 
@@ -91,7 +94,8 @@ class PlayerTest extends TestCase
      * which should give scores of 1 and 14
      * Make sure method returns 1 (lowest score)
      */
-    public function testGetLowestScore() {
+    public function testGetLowestScore()
+    {
         $deck = new DeckOfCards();
         $player = new Player("Jocke");
 

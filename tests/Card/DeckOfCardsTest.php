@@ -20,7 +20,8 @@ class DeckOfCardsTest extends TestCase
         $this->assertEquals($exp, $res);
     }
 
-    public function testDrawCards() {
+    public function testDrawCards()
+    {
         $deck = new DeckOfCards();
 
         $drawnCards = $deck->drawCards(3);
@@ -30,7 +31,8 @@ class DeckOfCardsTest extends TestCase
         $this->assertEquals(49, $deck->getCardsLeft());
     }
 
-    public function testDrawCardsOverLimit() {
+    public function testDrawCardsOverLimit()
+    {
         $deck = new DeckOfCards();
 
         $drawnCards = $deck->drawCards(53);
@@ -40,7 +42,8 @@ class DeckOfCardsTest extends TestCase
         $this->assertEquals(0, $deck->getCardsLeft());
     }
 
-    public function testDrawCard() {
+    public function testDrawCard()
+    {
         $deck = new DeckOfCards();
 
         $drawnCard = $deck->drawCard();
@@ -49,7 +52,8 @@ class DeckOfCardsTest extends TestCase
         $this->assertEquals(51, $deck->getCardsLeft());
     }
 
-    public function testGetCardStrings() {
+    public function testGetCardStrings()
+    {
         $deck = new DeckOfCards();
 
         $cardStrings = $deck->getCardStrings();
@@ -63,7 +67,8 @@ class DeckOfCardsTest extends TestCase
      * Not a perfect test case - theoretically possible that a shuffled
      * array ends up in the same order as before sorting occurred.
      */
-    public function testShuffleAndSortCards() {
+    public function testShuffleAndSortCards()
+    {
         $sortedDeck = new DeckOfCards();
 
         $shuffledDeck = new DeckOfCards();

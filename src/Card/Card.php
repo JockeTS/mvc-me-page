@@ -1,9 +1,8 @@
 <?php
 
-/** 
+/**
  * Playing card implementation.
  */
-
 
 namespace App\Card;
 

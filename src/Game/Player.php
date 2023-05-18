@@ -15,7 +15,8 @@ class Player
         $this->cards = [];
     }
 
-    public function addCard($card) {
+    public function addCard($card)
+    {
         $this->cards[] = $card;
     }
 
