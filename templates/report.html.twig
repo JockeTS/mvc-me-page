@@ -145,6 +145,50 @@
 
     <section id="kmom04">
         <h2>Kmom04</h2>
+
+        <h3>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.</h3>
+
+        <p>Jag tyckte det var roligare än förväntat att skriva enhetstester med PHPUnit. Det tog ett tag att sätta sig in i hur man ska tänka för att testa sin kod på ett bra sätt. Jag antar att detta också reflekteras i min kod.</p>
+
+        <p>För klasser som inte gör så mycket så är det väl egentligen inte så mycket att tänka på men när det gäller att testa själva spellogiken så känns det som det blir mer komplicerat.</p>
+
+        <p>Detta beror väl främst på att spelet har olika states vilket kan bli svårt att simulera utan input från användaren (beroende på hur man skrivit sin kod).</p>
+
+        <h3>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?</h3>
+
+        <p>Jag nådde 100% kodtäckning för klasserna som hanterar enskilda kort och kortleken. Detta berodde nog främst på att de var lätta att testa då de inte innehåller så många if-satser och liknande.</p>
+
+        <p>För klasserna som hanterar spellogiken och spelar-objekten låg motsvarande siffra på ca 95%. Player-klassen var något mer invecklad att testa då jag inte enbart ville testa ett objekt efter skapande men även när spelaren har dragit kort.</p>
+
+        <p>På så vis gick det att testa de olika metoderna som beräknar poäng och även att få en sträng-representation av spelaren med annat än default-värdena.</p>
+
+        <p>Det var på liknande sätt med Game-klassen med skillnaden att det är flera utomstående objekt som ingår. Detta gjorde att man fick tänka till lite inför varje test-case så att man skapar ett game state som kan tänkas motsvara en riktig spelomgång innan man kör testerna.</p>
+
+        <p>Jag gjorde inga tester för BankPlayer eftersom den inte används i koden för tillfället.</p>
+
+        <h3>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?</h3>
+
+        <p>Jag upplevde inte min kod som speciellt testbar eftersom det inte var något jag tagit hänsyn till när koden skrevs. Det känns som att klasserna måste kunna fungera ganska självständigt för att de ska kunna testas på ett smidigt sätt.</p>
+
+        <p>Även om många klasser alltid kommer innehålla objekt av andra klasser så vill man kunna testa en klass utan de klasser som "står över" den. Det är i alla fall så jag uppfattade det.</p>
+
+        <p>Exempelvis ville jag kunna testa Player-klassen utan att skapa ett Game-objekt medans man inte kommer undan att skapa Player-objekt om man testar Game-klassen.</p>
+
+        <h3>Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.</h3>
+
+        <p>Jag behövde inte skriva om så mycket egentligen förutom att lägga till en metod för att lägga till kort till ett spelar-objekt i Player-klassen istället för att det som tidigare gjordes direkt i Game-klassen.</p>
+
+        <h3>Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.</h3>
+
+        <p>Jag tror att så är fallet och att om koden är lätt att testa så innebär det att den är skriven på ett mer genomtänkt sätt och kanske även mer modulär för att underlätta enhetstester. Jag tror att sådan kod är lättare att sätta sig in i för utomstående eller om man varit borta från ett projekt en längre tid.</p>
+
+        <h3>Vilken är din TIL för detta kmom?</h3>
+
+        <p>Det första jag fick bekanta mig med var Xdebug vars installation inte var fullt så enkel på min Mac-maskin. Därefter lästes artikeln om olika filosofier för testning i mjukvarusammanhang.</p>
+
+        <p>Sedan använde jag exemplet och övningen för att komma igång med PHPUnit för att sedan försöka applicera den nya kunskapen på de egna klasserna för kortspelet.</p>
+
+        <p>Fick också lära mig om DocBlock samt hur man autogenererar dokumentation för sin kodbas.</p>
     </section>
 
     <section id="kmom05">
