@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Library {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('game_doc') }}">Doc</a>
+    </nav>
+
+    {% block main %}
+        <h3>Bibliotek</h3>
+    {% endblock %}
+{% endblock %}
