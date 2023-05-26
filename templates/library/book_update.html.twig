@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Book Update {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('book_read_all') }}">Översikt</a>
+    </nav>
+
+    {% block main %}
+        <div class="container">
+            <h2>Uppdatera bok</h2>
+            
+            <form method="POST" action="{{ path('book_update_post') }}" class="new-book">
+                <input type="hidden" id="bookId" name="bookId" value="{{ book.getId }}">
+
+                <label for="title">Titel:</label>
+                <input type="text" id="title" name="title" value="{{ book.getTitle }}" maxlength="50" size="50" required>
+
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" value="{{ book.getIsbn }}" minlength="13" maxlength="13" size="50" required>
+
+                <label for="image">Bild-URL:</label>
+                <input type="text" id="image" name="image" value="{{ book.getImage }}" maxlength="255" size="50">
+
+                <input type="submit" value="Skicka">
+            </form>
+        </div>
+    {% endblock %}
+{% endblock %}

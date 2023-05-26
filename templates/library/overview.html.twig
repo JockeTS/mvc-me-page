@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Overview {% endblock %}
+
+{% block body %}
+    {% block main %}
+        <div class="container">
+            <h2>Översikt ({{ books|length }} böcker)</h2>
+            
+            <ul>
+                {% for book in books %}
+                    <li><a href="{{ path('book_by_id', {id: book.getId}) }}">
+                        {{ book.getTitle }} ({{ book.getIsbn }})
+                    </a></li>
+                {% endfor %}
+            </ul>
+
+            <a href="{{ path('book_create') }}" class="link-button">+ Lägg till ny bok</a>
+        </div>
+    {% endblock %}
+{% endblock %}

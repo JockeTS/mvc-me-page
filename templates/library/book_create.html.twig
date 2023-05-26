@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Book Create {% endblock %}
+
+{% block body %}
+    <nav class="card-nav">
+        <a href="{{ path('book_read_all') }}">Översikt</a>
+    </nav>
+
+    {% block main %}
+        <div class="container">
+            <h2>Lägg till ny bok</h2>
+
+            <form method="POST" action="" class="new-book">
+                <label for="title">Titel:</label>
+                <input type="text" id="title" name="title" maxlength="50" size="50" required>
+
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" minlength="13" maxlength="13" size="50" required>
+
+                <label for="image">Bild-URL:</label>
+                <input type="text" id="image" name="image" maxlength="255" size="50">
+
+                <input type="submit" value="Skicka">
+            </form>
+        </div>
+    {% endblock %}
+{% endblock %}

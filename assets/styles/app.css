@@ -130,3 +130,45 @@ input[type='number']{
 .active {
     border: 3px solid green;
 }
+
+.link-button {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link-button:hover {
+    background-color: red;
+}
+
+.new-book {
+    margin-top: -1.4rem;
+    padding: 0.7rem;
+}
+
+.new-book > * {
+    display: block;
+}
+
+.new-book > label {
+    margin-top: 1.05rem;
+}
+
+.new-book > input {
+    margin-bottom: 1.05rem;
+}
+
+.container {
+    padding: 0 1.4rem;
+}
+
+.container-center {
+    text-align: center;
+}
+
+.book-image {
+    margin-bottom: 1.4rem;
+}
