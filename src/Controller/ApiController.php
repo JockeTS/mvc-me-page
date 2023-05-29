@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Repository\BookRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -129,6 +132,38 @@ class ApiController extends AbstractController
             "players" => $game->getPlayerStrings(),
             "winner" => explode(" ", $game->getWinningPlayer())[0]
         ]);
+
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    // Show all books in library
+    #[Route("/api/library/books", name: "api_books", methods: ['GET'])]
+    public function apiBooks(BookRepository $bookRepository): JsonResponse
+    {
+        $books = $bookRepository->findAll();
+
+        $response = $this->json($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    // Show book with {isbn}
+    #[Route("/api/library/book/{isbn}", name: "api_book", methods: ['GET'])]
+    public function apiBook(
+        BookRepository $bookRepository,
+        string $isbn
+    ): JsonResponse
+    {
+        $book = $bookRepository->findOneByIsbn($isbn);
+
+        $response = $this->json($book);
 
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
