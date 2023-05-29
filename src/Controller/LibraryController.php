@@ -89,7 +89,7 @@ class LibraryController extends AbstractController
     }
 
     // Update book with {id} (get)
-    #[Route('/library/update/{id}', name: 'book_update',  methods: ['GET'])]
+    #[Route('/library/update/{id}', name: 'book_update', methods: ['GET'])]
     public function updateBook(
         BookRepository $bookRepository,
         string $id
@@ -110,7 +110,7 @@ class LibraryController extends AbstractController
     }
 
     // Update book (post)
-    #[Route('/library/update', name: 'book_update_post',  methods: ['POST'])]
+    #[Route('/library/update', name: 'book_update_post', methods: ['POST'])]
     public function updateBookPost(
         Request $request,
         BookRepository $bookRepository
@@ -138,7 +138,7 @@ class LibraryController extends AbstractController
     }
 
     // Delete book (post)
-    #[Route('/library/delete', name: 'book_delete_post',  methods: ['POST'])]
+    #[Route('/library/delete', name: 'book_delete_post', methods: ['POST'])]
     public function deleteBookPost(
         Request $request,
         BookRepository $bookRepository

@@ -159,8 +159,7 @@ class ApiController extends AbstractController
     public function apiBook(
         BookRepository $bookRepository,
         string $isbn
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $book = $bookRepository->findOneByIsbn($isbn);
 
         $response = $this->json($book);
