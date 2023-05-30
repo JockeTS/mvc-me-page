@@ -194,7 +194,41 @@
     <section id="kmom05">
         <h2>Kmom05</h2>
 
-        hej
+        <h3>Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?</h3>
+
+        <p>Tycker det gick smidigt att jobba igenom övningen och det var inte någon del som jag fastnade på.</p>
+
+        <p>Det var en del inställningar och ändringar som skulle göras men tyckte det var lätt att skapa en databas, entity-klasser och migrations.</p>
+
+        <p>Jag trodde först att man behövde göra en migration varje gång man ändrar nåt i databasen, men efter att ha lagt till metoden som hämtar en bok utifrån dess isbn-nummer så drog jag slutsatsen att det bara är ändringar som berör databasens schema och inte metoder som bara hämtar data.</p>
+
+        <h3>Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?</h3>
+
+        <p>Ja jag försökte att tänka på användargränssnittet vid designandet av library-appen. Det första beslutet jag tog var att låta landningssidan och sidan som visar alla böcker vara densamma. Det kändes som att det förenklade flödet lite.</p>
+
+        <p>Därifrån kan man sedan klicka på den bok som man vill se en detaljvy för. Från denna kan man se bokens bild om en sådan finns samt antingen uppdatera eller radera boken.</p>
+
+        <p>Man kan även lägga till en ny bok från översikts-sidan. Alla vyer som inte är översiktssidan innehåller även en länk till översikts-vyn så att man snabbt ska kunna navigera tillbaka.</p>
+
+        <p>Försökte även styla knapparna så de såg mer tydliga och tilltalande ut än de förvalda.</p>
+
+        <h3>Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?</h3>
+
+        <p>Tycker det gick bra att jobba med ORM. Kanske berodde det på att det passade uppgiften väldigt bra med ett bibliotek där man kan lägga till böcker.</p>
+
+        <p>Den tydligheten gjorde att det blev ganska lätt att jobba objektorienterat även med databasen.</p>
+
+        <p>Jag vet inte om det underlättade så mycket egentligen jämfört med relationsmodellen men jag gillade att använda de autogenererade metoderna i repository- och book-klasserna och tyckte det kändes intuitivt.</p>
+
+        <h3>Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?</h3>
+
+        <p>ORM-konceptet kändes som en positiv överraskning och det var intressant att jobba mot databaser på ett annat sätt än relationsmodellen.</p>
+
+        <p>Vore kul att testa det i en lite större uppgift för att verkligen se vad det "går för". Tror också det hjälpte mycket att det var så pass smidigt att komma igång med Doctrine.</p>
+
+        <h3>Vilken är din TIL för detta kmom? TIL var främst hur man kommer igång med Doctrine i en app som använder Symfony-ramverket. Även en del om databaser med ett objektorienterat synsätt generellt (ORM).</h3>
+
+        <p>Fick också öva lite på hur man bestämmer ett användargränssnitt utifrån en delvis löst definierad kravlista. Kraven i sig var tydliga men inte exakt vilket struktur man skulle ha på allt vilket gjorde att man fick tänka lite själv.</p>
     </section>
 
     <section id="kmom06">
