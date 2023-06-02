@@ -37,4 +37,10 @@ class RootController extends AbstractController
         // Pass data to template and render it
         return $this->render('lucky.html.twig', $data);
     }
+
+    #[Route("/metrics", name: "metrics")]
+    public function metrics(): Response
+    {
+        return $this->render('metrics.html.twig');
+    }
 }

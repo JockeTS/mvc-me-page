@@ -172,3 +172,8 @@ input[type='number']{
 .book-image {
     margin-bottom: 1.4rem;
 }
+
+.badge-container {
+    display: flex;
+    justify-content: space-around;
+}

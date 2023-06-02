@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1685457577">
-  <project timestamp="1685457577">
+<coverage generated="1685516897">
+  <project timestamp="1685516897">
     <file name="/Users/jockesjolin/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
@@ -346,7 +346,7 @@
     </file>
     <file name="/Users/jockesjolin/dbwebb-kurser/mvc/me/report/src/Game/Game.php">
       <class name="App\Game\Game" namespace="global">
-        <metrics complexity="22" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="41" elements="49" coveredelements="45"/>
+        <metrics complexity="22" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="42" elements="49" coveredelements="47"/>
       </class>
       <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="24" type="stmt" count="4"/>
@@ -362,7 +362,7 @@
       <line num="51" type="stmt" count="1"/>
       <line num="52" type="stmt" count="1"/>
       <line num="56" type="stmt" count="1"/>
-      <line num="65" type="method" name="addCard" visibility="public" complexity="5" crap="5.02" count="2"/>
+      <line num="65" type="method" name="addCard" visibility="public" complexity="5" crap="5" count="2"/>
       <line num="67" type="stmt" count="2"/>
       <line num="69" type="stmt" count="2"/>
       <line num="72" type="stmt" count="2"/>
@@ -373,7 +373,7 @@
       <line num="80" type="stmt" count="2"/>
       <line num="81" type="stmt" count="2"/>
       <line num="85" type="stmt" count="2"/>
-      <line num="86" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="1"/>
       <line num="95" type="method" name="setActivePlayer" visibility="public" complexity="3" crap="3" count="1"/>
       <line num="97" type="stmt" count="1"/>
       <line num="98" type="stmt" count="1"/>
@@ -397,11 +397,11 @@
       <line num="145" type="stmt" count="1"/>
       <line num="146" type="stmt" count="1"/>
       <line num="149" type="stmt" count="0"/>
-      <metrics loc="152" ncloc="116" classes="1" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="41" elements="49" coveredelements="45"/>
+      <metrics loc="152" ncloc="116" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="42" elements="49" coveredelements="47"/>
     </file>
     <file name="/Users/jockesjolin/dbwebb-kurser/mvc/me/report/src/Game/Player.php">
       <class name="App\Game\Player" namespace="global">
-        <metrics complexity="16" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="39" elements="46" coveredelements="44"/>
+        <metrics complexity="16" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="46" coveredelements="46"/>
       </class>
       <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="13" type="stmt" count="9"/>
@@ -439,7 +439,7 @@
       <line num="78" type="stmt" count="4"/>
       <line num="79" type="stmt" count="4"/>
       <line num="82" type="stmt" count="1"/>
-      <line num="85" type="method" name="getLowestScore" visibility="public" complexity="4" crap="4.02" count="2"/>
+      <line num="85" type="method" name="getLowestScore" visibility="public" complexity="4" crap="4" count="2"/>
       <line num="87" type="stmt" count="2"/>
       <line num="89" type="stmt" count="2"/>
       <line num="91" type="stmt" count="2"/>
@@ -448,8 +448,8 @@
       <line num="97" type="stmt" count="2"/>
       <line num="99" type="stmt" count="2"/>
       <line num="100" type="stmt" count="2"/>
-      <line num="103" type="stmt" count="0"/>
-      <metrics loc="106" ncloc="102" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="39" elements="46" coveredelements="44"/>
+      <line num="103" type="stmt" count="1"/>
+      <metrics loc="106" ncloc="102" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="46" coveredelements="46"/>
     </file>
     <file name="/Users/jockesjolin/dbwebb-kurser/mvc/me/report/src/Kernel.php">
       <class name="App\Kernel" namespace="global">
@@ -480,6 +480,6 @@
       <line num="74" type="stmt" count="0"/>
       <metrics loc="77" ncloc="46" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
-    <metrics files="14" loc="1134" ncloc="1013" classes="13" methods="68" coveredmethods="21" conditionals="0" coveredconditionals="0" statements="327" coveredstatements="106" elements="395" coveredelements="127"/>
+    <metrics files="14" loc="1134" ncloc="1013" classes="13" methods="68" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="327" coveredstatements="108" elements="395" coveredelements="131"/>
   </project>
 </coverage>
