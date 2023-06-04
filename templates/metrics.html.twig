@@ -109,6 +109,24 @@
 
         <h3>Förbättringar</h3>
 
+        <p>Jag tänkte börja med att försöka åtgärda de ovan nämnda issues som Scrutinizer hittade i mina egen-skrivna klasser LibraryController samt BookRepository.</p>
+
+        <p>Båda felen var relativt lätta att åtgära, bara att ta bort en parameter i LibraryController och lägga till en return type i BookRepository. Därefter körde jag en ny inspektion i Scrutinizer varpå jag möttes av den glada nyheten att det nu var 2 issues mindre i kodbasen.</p>
+
+        <p>Därefter vill jag lägga ytterligare fokus på LibraryController då den har en komplexitet på 12 enligt Scrutinizer och en CRAP-score på 156 enligt PHPUnit. Jag tänker att jag inte kan ändra så mycket i koden i sig men att det däremot vore bra att lägga till enhetstester då den inte har någon kodtäckning alls i nuläget.</p>
+
+        <p>De enhetstester jag la till för LibraryController var av det enklare slaget. 4 GET-vyer testas, först att svaret från servern är korrekt och sedan att de förväntade text-elementen finns med på de testade sidorna. Trots att testerna är väldigt simpla och kodtäckningen bara 33% för LibraryController så minskade CRAP-score:n till 54.67 enligt PHPUnit.</p>
+
         <h3>Diskussion</h3>
+
+        <p>Jag tror att verktyg likt de vi använt i kursen kan vara ett bra sätt att förbättra sin kodkvalitet. Även om man ofta har en bra känsla för den kod man skrivit själv (så länge det var nyligen) så visar mätvärden svart på vitt var det kan finnas brister som behöver åtgärdas.</p> 
+
+        <p>Det kan nog även vara väldigt hjälpsamt vid större projekt där det är omöjligt att själv ha koll på hela kodbasen och kan då ge en fingervisning om var teamet bör fokusera sina ansträngningar.</p> 
+
+        <p>Det finns väl en potentiell nackdel i att man kanske fokuserar på mätvärdena lite för mycket i vissa fall och kanske lägger för mycket tid på att förbättra dessa även när det inte riktigt behövs. Det kan ju bli ett sätt att slippa ta itu med mer fundamentala problem i kodbasen.</p> 
+
+        <p>När det gäller andra sätt att jobba mot clean code som inte involverar mätvärden så kan jag väl främst tänka mig att det gäller att använda sunt förnuft. Att försöka skriva koden på ett sätt så det blir lätt både för en själv i framtiden och andra att snabbt kunna förstå vad som händer och kunna felsöka.</p>
+        
+        <p>Det gäller då att kommentera koden på ett effektivt sätt men utan att överdriva. Även att med kodkomplexitet i bakhuvudet försöka begränsa antalet beslutssteg och liknande. Sedan bör man väl även se till att ha bra rutiner för versionshantering så det blir tydligt vad som har lagts till i varje ny version.</p> 
     {% endblock %}
 {% endblock %}

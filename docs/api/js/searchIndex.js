@@ -251,6 +251,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-RootController.html#method_lucky"
         },                {
+            "fqsen": "\\App\\Controller\\RootController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-RootController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Game\\BankPlayer",
             "name": "BankPlayer",
             "summary": "",
