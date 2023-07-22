@@ -1,0 +1,20 @@
+{% extends "viz/base.html.twig" %}
+
+{% block title %} Viz Def {% endblock %}
+
+{% block body %}
+    {% block main %}
+        <h3 class="center">Definitioner för mätvärden</h3>
+
+        <ul>
+        {% for indicator in indicators %}
+            <li>
+                <h4>{{ indicator.description|e }}</h4>
+                {{ indicator.definition|raw }}
+            </li>
+        {% endfor %}
+        </ul>
+
+    {% endblock %}
+
+{% endblock %}

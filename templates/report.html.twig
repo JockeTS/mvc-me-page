@@ -233,6 +233,34 @@
 
     <section id="kmom06">
         <h2>Kmom06</h2>
+
+        <h3>Hur uppfattade du verktyget phpmetrics och fann du några särskilda bitar mer värdefulla än andra? Var det några särskilda metrics eller bilder du uppskattade?</h3>
+
+        <p>Jag tyckte PhpMetrics generellt var ett bra verktyg men uppfattade ibland användargränssnittet som lite rörigt. Det var väldigt mycket data som presenterades vilket gjorde att det kunde kännas lite överväldigande för en oinsatt. Kändes även ibland som man hittade samma mätvärden på flera olika ställen.</p>
+
+        <p>Tyckte Violations var intressant att ta del av då det visade mer övergripande fel och varningar i de olika klasserna, även om det inte var helt klart hur dessa skulle åtgärdas.</p>
+
+        <p>Därefter var det främst komplexiteten jag tittade på för de olika klasserna och deras metoder. Gillade att det var smidigt att sortera på de olika mätvärdena vilket gjorde att man snabbt kunde se var fokus borde läggas. Coupling-tabben var också behjälplig för att bilda sig en uppfattning om hur de olika klasserna var beroende av varandra.</p>
+
+        <h3>Berätta hur det gick att integrera med Scrutinizer och vilken är din första känsla av verktyget och dess badges? Vilken kodtäckning och kodkvalitet fick du efter första bygget?</h3>
+
+        <p>Tyckte det gick ganska smidigt att integrera mitt repo med Scrutinizer. Vet dock inte om jag gjorde nåt fel då jag var tvungen att manuellt starta en inspektion varje gång jag gjort ändringar. Trodde att det skulle ske automatiskt efter varje git push.</p>
+
+        <p>Hursomhelst så var det smidigt att se vilka issues man behövde fixa för att nå en högre poäng. Det var också bra med färgkodad kodkvalitet så man fick ett hum om hur bra ens kodbas var överlag. Jag fick 10 i betyg av Scrutinizer och en kodtäckning om 33%.</p>
+
+        <p>Dock så fail:ade mitt bygge efter att jag la till enhetstester för LibraryController. Nånting om att man inte ska extenda Monolog\Logger. Men då det är något internt i Symfony så verkar det inte vara något jag kan göra så mycket åt, förutsatt att jag inte gjorde nåt fel med enhetstesterna.</p>
+
+        <h3>Hur är din egen syn på kodkvalitet, berätta lite om den? Tror du man kan man påvisa kodkvalitet i någon viss mån med badges eller vad tror du?</h3>
+
+        <p>Jag tror att man till stor del kan påvisa kodkvalitet med hjälp av badges, även om det kanske inte är perfekt. Framförallt när det kommer till att uppskatta hur kostsamt det är att gå in i kodbasen för att underhålla eller lägga till features. Så som nämndes i en av föreläsningarna.</p>
+        
+        <p>Koden kan säkert fungera jättebra i många fall även med låga betyg från Scrutinizer och liknande verktyg. Men just när det kommer till kodens "användarvänlighet" och säkerligen även risken för komplexa buggar så tror jag det hjälper mycket att ha bra mätvärden. Särskilt för stora och långtgående projekt.</p>
+
+        <h3>Vilken är din TIL för detta kmom?</h3>
+
+        <p>Detta kmom har mest handlat om olika sätt att analysera befintlig kodbas istället för att lägga till nya features. Även om det kanske inte är det mest spännande alltid så har det känts bra att stanna upp och få en "reality check" om hur det ligger till med ens kodkvalitet.</p>
+        
+        <p>Har lärt mig om vilka mätvärden man bör hålla ett extra öga på vilket blir lättare att komma ihåg tack vare "de 6C:na". Har också fått öva på att analysera olika issues, försöka åtgärda dessa och jämföra mätvärdena före och efter.</p>
     </section>
 
     <section id="kmom10">

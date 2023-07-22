@@ -1,0 +1,14 @@
+{% extends "viz/base.html.twig" %}
+
+{% block title %} Viz Start {% endblock %}
+
+{% block body %}
+    {% block main %}
+        <h3 class="center">2000 - 2016</h3>
+
+        {{ render_chart(negativeChart, {'data-controller': 'chart'}) }}
+        {{ render_chart(positiveChart, {'data-controller': 'chart'}) }}
+
+    {% endblock %}
+
+{% endblock %}

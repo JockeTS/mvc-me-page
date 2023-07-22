@@ -177,3 +177,51 @@ input[type='number']{
     display: flex;
     justify-content: space-around;
 }
+
+.site-header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.viz-body {
+    background-color: #fff;
+}
+
+.viz-body > .site-header h3 {
+    border: 2px solid rgb(0, 128, 0);
+    border-radius: 4px;
+    background-color: rgba(0, 128, 0, 0.615);
+    color: #fff;
+    padding: 8px;
+}
+
+.viz-body h3, h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.viz-nav {
+    background-color: #fd8a4ce9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.viz-nav a {
+    color: #fff;
+    flex: 1;
+    padding: 1em;
+    text-align: center;
+}
+
+.viz-nav a:hover {
+    background-color: #517976de;
+}
+
+.viz-footer {
+    background-color: #fd8a4ce9;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em 0;
+}
