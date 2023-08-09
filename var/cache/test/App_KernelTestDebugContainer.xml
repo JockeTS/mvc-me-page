@@ -19,6 +19,8 @@
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
+      <parameter key="StimulusBundle">Symfony\UX\StimulusBundle\StimulusBundle</parameter>
+      <parameter key="ChartjsBundle">Symfony\UX\Chartjs\ChartjsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -60,6 +62,14 @@
       <parameter key="WebpackEncoreBundle" type="collection">
         <parameter key="path">/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/webpack-encore-bundle/src</parameter>
         <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
+      <parameter key="StimulusBundle" type="collection">
+        <parameter key="path">/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/stimulus-bundle</parameter>
+        <parameter key="namespace">Symfony\UX\StimulusBundle</parameter>
+      </parameter>
+      <parameter key="ChartjsBundle" type="collection">
+        <parameter key="path">/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/ux-chartjs</parameter>
+        <parameter key="namespace">Symfony\UX\Chartjs</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -347,10 +357,25 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\RootController"/>
       </call>
     </service>
+    <service id="App\Controller\VizController" class="App\Controller\VizController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\VizController"/>
+      </call>
+    </service>
     <service id="App\Game\BankPlayer" class="App\Game\BankPlayer" autowire="true" autoconfigure="true"/>
     <service id="App\Game\Game" class="App\Game\Game" autowire="true" autoconfigure="true"/>
     <service id="App\Game\Player" class="App\Game\Player" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\BookRepository" class="App\Repository\BookRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\DataPointRepository" class="App\Repository\DataPointRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\IndicatorRepository" class="App\Repository\IndicatorRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1459,6 +1484,8 @@
         <argument key="App\Card\DeckOfCards" type="service_closure" id="App\Card\DeckOfCards" on-invalid="ignore_uninitialized"/>
         <argument key="App\Game\Game" type="service_closure" id="App\Game\Game" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\BookRepository" type="service_closure" id="App\Repository\BookRepository" on-invalid="ignore_uninitialized"/>
+        <argument key="App\Repository\DataPointRepository" type="service_closure" id="App\Repository\DataPointRepository" on-invalid="ignore_uninitialized"/>
+        <argument key="App\Repository\IndicatorRepository" type="service_closure" id="App\Repository\IndicatorRepository" on-invalid="ignore_uninitialized"/>
         <argument key="argument_metadata_factory" type="service_closure" id="argument_metadata_factory" on-invalid="ignore_uninitialized"/>
         <argument key="response_listener" type="service_closure" id="response_listener" on-invalid="ignore_uninitialized"/>
         <argument key="locale_listener" type="service_closure" id="locale_listener" on-invalid="ignore_uninitialized"/>
@@ -1989,6 +2016,12 @@
         <argument key="webpack_encore.exception_listener" type="service_closure" id="webpack_encore.exception_listener" on-invalid="ignore_uninitialized"/>
         <argument key="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener" type="service_closure" id="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener" on-invalid="ignore_uninitialized"/>
         <argument key="webpack_encore.entrypoint_lookup[_default]" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
+        <argument key="stimulus.helper" type="service_closure" id="stimulus.helper" on-invalid="ignore_uninitialized"/>
+        <argument key="stimulus.twig_extension" type="service_closure" id="stimulus.twig_extension" on-invalid="ignore_uninitialized"/>
+        <argument key="stimulus.asset_mapper.ux_package_reader" type="service_closure" id="stimulus.asset_mapper.ux_package_reader" on-invalid="ignore_uninitialized"/>
+        <argument key="stimulus.ux_controllers_twig_extension" type="service_closure" id="stimulus.ux_controllers_twig_extension" on-invalid="ignore_uninitialized"/>
+        <argument key="chartjs.builder" type="service_closure" id="chartjs.builder" on-invalid="ignore_uninitialized"/>
+        <argument key="chartjs.twig_extension" type="service_closure" id="chartjs.twig_extension" on-invalid="ignore_uninitialized"/>
         <argument key="debug.argument_resolver.backed_enum_resolver" type="service_closure" id="debug.argument_resolver.backed_enum_resolver" on-invalid="ignore_uninitialized"/>
         <argument key="debug.argument_resolver.datetime" type="service_closure" id="debug.argument_resolver.datetime" on-invalid="ignore_uninitialized"/>
         <argument key="debug.argument_resolver.request_attribute" type="service_closure" id="debug.argument_resolver.request_attribute" on-invalid="ignore_uninitialized"/>
@@ -2185,8 +2218,9 @@
         <argument key="sensio_framework_extra.security.expression_language" type="service_closure" id="sensio_framework_extra.security.expression_language.default" on-invalid="ignore_uninitialized"/>
         <argument key="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" type="service_closure" id="webpack_encore.entrypoint_lookup_collection" on-invalid="ignore_uninitialized"/>
         <argument key="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
+        <argument key="Symfony\UX\Chartjs\Builder\ChartBuilderInterface" type="service_closure" id="chartjs.builder" on-invalid="ignore_uninitialized"/>
         <argument key="twig.loader.filesystem" type="service_closure" id="twig.loader.native_filesystem" on-invalid="ignore_uninitialized"/>
-        <argument key="argument_resolver.controller_locator" type="service_closure" id=".service_locator.3aiSENy" on-invalid="ignore_uninitialized"/>
+        <argument key="argument_resolver.controller_locator" type="service_closure" id=".service_locator.kWngxlb" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.id_generator_locator" type="service_closure" id=".service_locator.KLVvNIq" on-invalid="ignore_uninitialized"/>
         <argument key="twig.loader" type="service_closure" id="twig.loader.native_filesystem" on-invalid="ignore_uninitialized"/>
         <argument key="Psr\Log\LoggerInterface $requestLogger" type="service_closure" id="monolog.logger.request" on-invalid="ignore_uninitialized"/>
@@ -2684,6 +2718,8 @@
           <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/monolog-bundle/translations</argument>
           <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/sensio/framework-extra-bundle/src/translations</argument>
           <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/webpack-encore-bundle/src/translations</argument>
+          <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/stimulus-bundle/translations</argument>
+          <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report/vendor/symfony/ux-chartjs/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2701,6 +2737,8 @@
             <argument>vendor/symfony/monolog-bundle/translations</argument>
             <argument>vendor/sensio/framework-extra-bundle/src/translations</argument>
             <argument>vendor/symfony/webpack-encore-bundle/src/translations</argument>
+            <argument>vendor/symfony/stimulus-bundle/translations</argument>
+            <argument>vendor/symfony/ux-chartjs/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4890,7 +4928,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.kjkXYMe"/>
+      <argument type="service" id=".service_locator.oFFc.At"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5392,6 +5430,15 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="stimulus.ux_controllers_twig_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="chartjs.twig_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="stimulus.twig_extension"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -6507,6 +6554,24 @@
         <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
       </argument>
     </service>
+    <service id="stimulus.helper" class="Symfony\UX\StimulusBundle\Helper\StimulusHelper">
+      <argument type="service" id="twig" on-invalid="null"/>
+    </service>
+    <service id="stimulus.twig_extension" class="Symfony\UX\StimulusBundle\Twig\StimulusTwigExtension">
+      <tag name="twig.extension" priority="-10"/>
+      <argument type="service" id="stimulus.helper"/>
+    </service>
+    <service id="stimulus.asset_mapper.ux_package_reader" class="Symfony\UX\StimulusBundle\Ux\UxPackageReader">
+      <argument>/Users/jockesjolin/dbwebb-kurser/mvc/me/report</argument>
+    </service>
+    <service id="stimulus.ux_controllers_twig_extension" class="Symfony\UX\StimulusBundle\Twig\UxControllersTwigExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="chartjs.builder" class="Symfony\UX\Chartjs\Builder\ChartBuilder"/>
+    <service id="chartjs.twig_extension" class="Symfony\UX\Chartjs\Twig\ChartExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="stimulus.helper"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6522,8 +6587,15 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RootController" class="App\Controller\RootController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RootController" class="App\Controller\RootController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RootController" class="App\Controller\RootController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VizController" class="App\Controller\VizController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VizController" class="App\Controller\VizController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\VizController" class="App\Controller\VizController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BookRepository" class="App\Repository\BookRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BookRepository" class="App\Repository\BookRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DataPointRepository" class="App\Repository\DataPointRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\DataPointRepository" class="App\Repository\DataPointRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IndicatorRepository" class="App\Repository\IndicatorRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\IndicatorRepository" class="App\Repository\IndicatorRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6564,7 +6636,22 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.3aiSENy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator..JjkTYj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="chartBuilder" type="service_closure" id="chartjs.builder"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+        <argument key="indicatorRepository" type="service_closure" id="App\Repository\IndicatorRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.VqkG81x" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+        <argument key="indicatorRepository" type="service_closure" id="App\Repository\IndicatorRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.kWngxlb" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ApiController::apiBook" type="service_closure" id=".service_locator.B2ZeSAD"/>
@@ -6575,6 +6662,9 @@
         <argument key="App\Controller\LibraryController::readBookById" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController::updateBook" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController::updateBookPost" type="service_closure" id=".service_locator.B2ZeSAD"/>
+        <argument key="App\Controller\VizController::createChart" type="service_closure" id=".service_locator..JjkTYj"/>
+        <argument key="App\Controller\VizController::vizDef" type="service_closure" id=".service_locator.VqkG81x"/>
+        <argument key="App\Controller\VizController::vizStart" type="service_closure" id=".service_locator..JjkTYj"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6587,6 +6677,9 @@
         <argument key="App\Controller\LibraryController:readBookById" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController:updateBook" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController:updateBookPost" type="service_closure" id=".service_locator.B2ZeSAD"/>
+        <argument key="App\Controller\VizController:createChart" type="service_closure" id=".service_locator..JjkTYj"/>
+        <argument key="App\Controller\VizController:vizDef" type="service_closure" id=".service_locator.VqkG81x"/>
+        <argument key="App\Controller\VizController:vizStart" type="service_closure" id=".service_locator..JjkTYj"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -6747,10 +6840,12 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.kjkXYMe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.oFFc.At" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\BookRepository" type="service_closure" id="App\Repository\BookRepository"/>
+        <argument key="App\Repository\DataPointRepository" type="service_closure" id="App\Repository\DataPointRepository"/>
+        <argument key="App\Repository\IndicatorRepository" type="service_closure" id="App\Repository\IndicatorRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6999,6 +7094,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\VizController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\VizController"/>
+      <argument>App\Controller\VizController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.wSgjnB6" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7182,12 +7283,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.3aiSENy"/>
+      <argument type="service" id=".service_locator.kWngxlb"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.3aiSENy"/>
+      <argument type="service" id=".service_locator.kWngxlb"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7898,9 +7999,10 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
+    <service id="Symfony\UX\Chartjs\Builder\ChartBuilderInterface" alias="chartjs.builder"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.3aiSENy"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.kWngxlb"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -7921,7 +8023,9 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~cnsUqSS"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.9_OR0hV" alias=".service_locator.3aiSENy"/>
+    <service id=".service_locator.qMbokrR" alias=".service_locator..JjkTYj"/>
+    <service id=".service_locator.988xTgk" alias=".service_locator.VqkG81x"/>
+    <service id=".service_locator.y6Ft3LU" alias=".service_locator.kWngxlb"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -7952,6 +8056,8 @@
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.7fc3RCT" alias=".service_locator.B2ZeSAD"/>
     <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
+    <service id=".service_locator.uPfPtYR" alias=".service_locator..JjkTYj"/>
+    <service id=".service_locator.REnRW8p" alias=".service_locator.VqkG81x"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>
     <service id=".service_locator.aa1PbBb" alias=".service_locator.nLgZj7R"/>

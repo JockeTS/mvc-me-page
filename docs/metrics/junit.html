@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-06-04 13:55:06        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-07-30 09:36:44        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -60,24 +60,24 @@
         <div class="bloc bloc-number">
             <div class="label">Test suites</div>
             <div class="number">
-                6            </div>
+                7            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">Assertions</div>
             <div class="number">
-                46            </div>
+                56            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">
                 classes never called by tests
-                <small>(64.29 %)</small>
+                <small>(68.42 %)</small>
             </div>
             <div class="number">
-                9            </div>
+                13            </div>
         </div>
     </div>
 </div>
@@ -103,6 +103,17 @@
                         </thead>
                         <tbody id="contentAreaJunitNeverCalled" class="clusterize-content">
                                                     <tr>
+                                <td><span class="path">App\Repository\IndicatorRepository</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);">
+                                        3                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);">
+                                        0.04                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
                                 <td><span class="path">App\Repository\BookRepository</span></td>
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);">
@@ -114,6 +125,17 @@
                                     </td>
                                                             </tr>
                                                         <tr>
+                                <td><span class="path">App\Repository\DataPointRepository</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);">
+                                        3                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);">
+                                        0.01                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
                                 <td><span class="path">App\Entity\Book</span></td>
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
@@ -122,6 +144,28 @@
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);">
                                         0.03                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Entity\DataPoint</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);">
+                                        0.03                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Entity\Indicator</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);">
+                                        4                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);">
+                                        0.09                                        </span>
                                     </td>
                                                             </tr>
                                                         <tr>
@@ -277,6 +321,20 @@
                                                                             <br>                                        <span class="badge" title="Cyclomatic complexity of class">
                                             -                                        </span>
                                         <span class="path">static</span>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <td valign="top"><span class="path">App\Controller\VizControllerTest</span></td>
+                                <td style="padding-bottom: 1em;">
+                                                                                                                    <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">Symfony\Bundle\FrameworkBundle\Test\WebTestCase</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">static</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            4                                        </span>
+                                        <span class="path">App\Controller\VizController</span>
                                                                     </td>
                             </tr>
                                                     <tr>
@@ -551,7 +609,7 @@
 
 
             
-            var json = {"name":"Execution time","children":[{"name":"App\\Card\\CardGraphicTest","time":0.019773},{"name":"App\\Card\\CardTest","time":0.000871},{"name":"App\\Card\\DeckOfCardsTest","time":0.02163},{"name":"App\\Controller\\LibraryControllerTest","time":1.000073},{"name":"App\\Game\\GameTest","time":0.009422},{"name":"App\\Game\\PlayerTest","time":0.006167}]};
+            var json = {"name":"Execution time","children":[{"name":"App\\Card\\CardGraphicTest","time":0.019443},{"name":"App\\Card\\CardTest","time":0.000735},{"name":"App\\Card\\DeckOfCardsTest","time":0.021734},{"name":"App\\Controller\\LibraryControllerTest","time":1.297249},{"name":"App\\Controller\\VizControllerTest","time":0.246816},{"name":"App\\Game\\GameTest","time":0.01002},{"name":"App\\Game\\PlayerTest","time":0.006696}]};
             root = json;
             var nodes = treemap.nodes(json)
                 .filter(function (d) {

@@ -36,4 +36,7 @@ return [
     'report' => [[], ['_controller' => 'App\\Controller\\RootController::report'], [], [['text', '/report']], [], [], []],
     'lucky' => [[], ['_controller' => 'App\\Controller\\RootController::lucky'], [], [['text', '/lucky']], [], [], []],
     'metrics' => [[], ['_controller' => 'App\\Controller\\RootController::metrics'], [], [['text', '/metrics']], [], [], []],
+    'viz_start' => [[], ['_controller' => 'App\\Controller\\VizController::vizStart'], [], [['text', '/proj']], [], [], []],
+    'viz_about' => [[], ['_controller' => 'App\\Controller\\VizController::vizAbout'], [], [['text', '/proj/about']], [], [], []],
+    'viz_def' => [[], ['_controller' => 'App\\Controller\\VizController::vizDef'], [], [['text', '/proj/definitions']], [], [], []],
 ];

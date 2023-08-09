@@ -39,6 +39,9 @@ return [
         '/report' => [[['_route' => 'report', '_controller' => 'App\\Controller\\RootController::report'], null, null, null, false, false, null]],
         '/lucky' => [[['_route' => 'lucky', '_controller' => 'App\\Controller\\RootController::lucky'], null, null, null, false, false, null]],
         '/metrics' => [[['_route' => 'metrics', '_controller' => 'App\\Controller\\RootController::metrics'], null, null, null, false, false, null]],
+        '/proj' => [[['_route' => 'viz_start', '_controller' => 'App\\Controller\\VizController::vizStart'], null, null, null, false, false, null]],
+        '/proj/about' => [[['_route' => 'viz_about', '_controller' => 'App\\Controller\\VizController::vizAbout'], null, null, null, false, false, null]],
+        '/proj/definitions' => [[['_route' => 'viz_def', '_controller' => 'App\\Controller\\VizController::vizDef'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

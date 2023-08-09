@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-06-04 13:55:06        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-07-30 09:36:44        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -283,10 +283,17 @@
     {
         "name": "App\\Entity",
         "size": 3000,
-        "relations": []
+        "relations": [
+            "Doctrine\\Common\\Collections"
+        ]
     },
     {
         "name": "App\\Card",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Doctrine\\Common\\Collections",
         "size": 3000,
         "relations": []
     },
@@ -308,6 +315,7 @@
             "App\\Repository",
             "App\\Game",
             "Doctrine\\Persistence",
+            "Symfony\\UX\\Chartjs\\Builder",
             "App\\Entity"
         ]
     },
@@ -323,6 +331,11 @@
     },
     {
         "name": "Symfony\\Component\\HttpFoundation\\Session",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Symfony\\UX\\Chartjs\\Builder",
         "size": 3000,
         "relations": []
     },

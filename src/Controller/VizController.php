@@ -26,8 +26,7 @@ class VizController extends AbstractController
         IndicatorRepository $indicatorRepository,
         ManagerRegistry $doctrine,
         ChartBuilderInterface $chartBuilder
-    ): array 
-    {
+    ): object {
         $entityManager = $doctrine->getManager();
 
         $indicators = $indicatorRepository->findByOutcome($outcome);
@@ -48,7 +47,7 @@ class VizController extends AbstractController
                 if (!in_array($year, $labels)) {
                     array_push($labels, $year);
                 }
-                
+
                 $data[$year] = $value;
             }
 
@@ -81,7 +80,8 @@ class VizController extends AbstractController
             ],
         ]);
 
-        return [$chart, $datasets];
+        // return [$chart, $datasets];
+        return $chart;
     }
 
     #[Route("/proj", name: "viz_start")]
@@ -89,18 +89,18 @@ class VizController extends AbstractController
         IndicatorRepository $indicatorRepository,
         ManagerRegistry $doctrine,
         ChartBuilderInterface $chartBuilder
-    ): Response
-    {
-        $arr1 = $this->createChart("negative", $indicatorRepository, $doctrine, $chartBuilder);
+    ): Response {
+        // $arr1 = $this->createChart("negative", $indicatorRepository, $doctrine, $chartBuilder);
+        // $negativeChart = $arr1[0];
 
-        $negativeChart = $arr1[0];
-        $positiveChart = $this->createChart("positive", $indicatorRepository, $doctrine, $chartBuilder)[0];
+        $negativeChart = $this->createChart("negative", $indicatorRepository, $doctrine, $chartBuilder);
+        $positiveChart = $this->createChart("positive", $indicatorRepository, $doctrine, $chartBuilder);
 
         return $this->render('viz/start.html.twig', [
             "negativeChart" => $negativeChart,
             "positiveChart" => $positiveChart,
             // "dataPoints" => $dataPoints->getValues()
-            "test" => $arr1[1]
+            // "test" => $arr1[1]
         ]);
     }
 
@@ -113,8 +113,8 @@ class VizController extends AbstractController
     #[Route("/proj/definitions", name: "viz_def")]
     public function vizDef(
         IndicatorRepository $indicatorRepository,
-        ManagerRegistry $doctrine,): Response
-    {
+        ManagerRegistry $doctrine,
+    ): Response {
         $indicators = $indicatorRepository->findAll();
 
         return $this->render('viz/definitions.html.twig', [
