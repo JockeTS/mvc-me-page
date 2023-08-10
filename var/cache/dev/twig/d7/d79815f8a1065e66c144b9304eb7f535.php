@@ -94,7 +94,7 @@ class __TwigTemplate_9bfd805bd03e9b95aacc76f2a90f25fd extends Template
         <li><a href=\"#kmom04\">kmom04</a></li>
         <li><a href=\"#kmom05\">kmom05</a></li>
         <li><a href=\"#kmom06\">kmom06</a></li>
-        <li><a href=\"#kmom010\">kmom10</a></li>
+        <li><a href=\"#kmom10\">kmom10</a></li>
     </ul>
 
     <section id=\"kmom01\">
@@ -347,6 +347,24 @@ class __TwigTemplate_9bfd805bd03e9b95aacc76f2a90f25fd extends Template
 
     <section id=\"kmom10\">
         <h2>Kmom10</h2>
+
+        <h3>Krav 1, 2, 3</h3>
+
+        <p>Jag började med att allmänt bekanta mig med de globala målen och fick därefter idén att jag ville visa den procentuella förändringen för ett antal mätvärden över tid. Detta för att visa att världens utveckling i det stora hela går åt rätt håll.</p>
+
+        <p>Det var inte alla mätvärden som uttrycktes i procent, så nästa steg blev att hitta de mätvärden som lämpade sig för projektet. Därefter lades varje mätvärde in som en \"indicator\" och varje datapunkt som en \"data point\" i ett Google Sheets-ark.</p>
+
+        <p>Jag undersökte i det här skedet olika sätt att visa upp grafer i webbläsaren och det syntes finnas flertalet sätt att lösa det på. För att förenkla processen valde jag dock att använda samma bibliotek som används på webbplatsen för de globala målen.</p>
+
+        <p>För detta fanns en Symfony-bundle som tillåter integration av Chart.js i Symfony-applikationer. Det gick därefter att skapa grafer direkt i PHP om man så ville, alternativt kunde man även använda sig av en Stimulus-controller i JavaScript för att få lite mer ordning på det hela.</p>
+
+        <p>Jag valde det sistnämnda för sådant som delas av alla grafer, som en slags grund/mall. Därefter ändras sånt som behöver anpassas till varje enskild graf direkt i PHP när grafen skapas.</p>
+
+        <p>Därefter var det dags att skapa databasen. Databasen använder två entiteter för att lagra information om de olika mätvärdena. Den första är Indicator som lagrar varje mätvärde. Varje Indicator har i sin tur ett One-to-Many-förhållande till nästa entitet, DataPoint. Här lagras vilket år datapunkten åsyftar samt dess procentuella värde. Databasen populerades genom att värdena från Google Sheets importerades i CSV-format.</p>
+
+        <p>När databasen med innehåll var på plats återstod att koppla detta till graferna. Först hämtas de Indicators som ska ingå i en graf (positiva eller negativa). Därefter byggs ett dataset för varje Indicator som innehåller de tillhörande datapunkterna. Denna data används sedan för att skapa och rendera graferna.</p>
+
+        <p>Har även ändrat utseendet lite på graferna så att %-tecknet visas på y-axeln samt gjort så det är 25 procentenheter mellan varje \"steg\". Varje Indicator har en unik färg som fås genom funktionen getColor som skapar en hexadecimal färg utifrån Indicatorn's Code.</p>
     </section>
 ";
         
@@ -388,7 +406,7 @@ class __TwigTemplate_9bfd805bd03e9b95aacc76f2a90f25fd extends Template
         <li><a href=\"#kmom04\">kmom04</a></li>
         <li><a href=\"#kmom05\">kmom05</a></li>
         <li><a href=\"#kmom06\">kmom06</a></li>
-        <li><a href=\"#kmom010\">kmom10</a></li>
+        <li><a href=\"#kmom10\">kmom10</a></li>
     </ul>
 
     <section id=\"kmom01\">
@@ -641,6 +659,24 @@ class __TwigTemplate_9bfd805bd03e9b95aacc76f2a90f25fd extends Template
 
     <section id=\"kmom10\">
         <h2>Kmom10</h2>
+
+        <h3>Krav 1, 2, 3</h3>
+
+        <p>Jag började med att allmänt bekanta mig med de globala målen och fick därefter idén att jag ville visa den procentuella förändringen för ett antal mätvärden över tid. Detta för att visa att världens utveckling i det stora hela går åt rätt håll.</p>
+
+        <p>Det var inte alla mätvärden som uttrycktes i procent, så nästa steg blev att hitta de mätvärden som lämpade sig för projektet. Därefter lades varje mätvärde in som en \"indicator\" och varje datapunkt som en \"data point\" i ett Google Sheets-ark.</p>
+
+        <p>Jag undersökte i det här skedet olika sätt att visa upp grafer i webbläsaren och det syntes finnas flertalet sätt att lösa det på. För att förenkla processen valde jag dock att använda samma bibliotek som används på webbplatsen för de globala målen.</p>
+
+        <p>För detta fanns en Symfony-bundle som tillåter integration av Chart.js i Symfony-applikationer. Det gick därefter att skapa grafer direkt i PHP om man så ville, alternativt kunde man även använda sig av en Stimulus-controller i JavaScript för att få lite mer ordning på det hela.</p>
+
+        <p>Jag valde det sistnämnda för sådant som delas av alla grafer, som en slags grund/mall. Därefter ändras sånt som behöver anpassas till varje enskild graf direkt i PHP när grafen skapas.</p>
+
+        <p>Därefter var det dags att skapa databasen. Databasen använder två entiteter för att lagra information om de olika mätvärdena. Den första är Indicator som lagrar varje mätvärde. Varje Indicator har i sin tur ett One-to-Many-förhållande till nästa entitet, DataPoint. Här lagras vilket år datapunkten åsyftar samt dess procentuella värde. Databasen populerades genom att värdena från Google Sheets importerades i CSV-format.</p>
+
+        <p>När databasen med innehåll var på plats återstod att koppla detta till graferna. Först hämtas de Indicators som ska ingå i en graf (positiva eller negativa). Därefter byggs ett dataset för varje Indicator som innehåller de tillhörande datapunkterna. Denna data används sedan för att skapa och rendera graferna.</p>
+
+        <p>Har även ändrat utseendet lite på graferna så att %-tecknet visas på y-axeln samt gjort så det är 25 procentenheter mellan varje \"steg\". Varje Indicator har en unik färg som fås genom funktionen getColor som skapar en hexadecimal färg utifrån Indicatorn's Code.</p>
     </section>
 {% endblock %}", "report.html.twig", "/Users/jockesjolin/dbwebb-kurser/mvc/me/report/templates/report.html.twig");
     }
