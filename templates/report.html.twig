@@ -283,5 +283,15 @@
         <p>När databasen med innehåll var på plats återstod att koppla detta till graferna. Först hämtas de Indicators som ska ingå i en graf (positiva eller negativa). Därefter byggs ett dataset för varje Indicator som innehåller de tillhörande datapunkterna. Denna data används sedan för att skapa och rendera graferna.</p>
 
         <p>Har även ändrat utseendet lite på graferna så att %-tecknet visas på y-axeln samt gjort så det är 25 procentenheter mellan varje "steg". Varje Indicator har en unik färg som fås genom funktionen getColor som skapar en hexadecimal färg utifrån Indicatorn's Code.</p>
+
+        <h3>Allmänt om projektet</h3>
+
+        <p>Det tog ett tag att komma igång med projektet, främst för att jag inte riktigt visste vad jag ville bygga. När grundidén var på plats blev det en hel del experimenterande med Chart.js. Det var inte helt lätt att komma igång med och få det att se ut som man ville även om guiden på Symfony's hemsida var ganska bra.</p>
+
+        <p>Det största problemet var att få årtalen att visas på rätt sätt. Jag ville egentligen kunna lägga in vilka årtal som helst som datapunkter och få dessa att automatiskt visas med rätt mellanrum beroende på hur lång tid det var mellan årtalen. För detta testade jag att använda en line chart med tidsadapter men trots mycket nedlagd tid lyckades jag inte få det att fungera.</p>
+
+        <p>Av den anledningen blev jag tvungen att vara lite kräsen med datan istället och valde ut samma årtal för alla Indicators med 4 års mellanrum. Tyckte det blev alldeles för rörigt och oöverskådligt annars när det var samma mellanrum mellan alla årtal.</p>
+
+        <p>Även databasen bjöd på en del utmaningar då jag inte var så van vid det objektorienterade tankesättet samt att använda Doctrine med Symfony. Det var ju egentligen ganska lätt att komma igång med förutom när det gällde att skapa en One-to-Many-relation mellan Indicator och DataPoint.</p>
     </section>
 {% endblock %}
